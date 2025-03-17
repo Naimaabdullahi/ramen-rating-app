@@ -25,7 +25,6 @@ function displayRamens() {
         img.alt = ramen.name;
         img.style.width = "100px";
         img.style.cursor = "pointer";
-        img.addEventListener("click", () => handleClick(ramen));
         ramenMenu.appendChild(img);
     });
 }
@@ -48,21 +47,6 @@ function handleClick(ramen) {
     detailContainer.style.flexDirection = "column";
     detailContainer.style.alignItems = "center";
     detailContainer.style.justifyContent = "center";
-
-    const deleteButton = document.getElementById("delete-ramen");
-    deleteButton.style.display = "block";
-    deleteButton.onclick = function () {
-        const index = ramens.findIndex(r => r.id === ramen.id);
-        if (index !== -1) {
-            ramens.splice(index, 1);
-            displayRamens();
-            if (ramens.length > 0) {
-                handleClick(ramens[0]);
-            } else {
-                detailContainer.innerHTML = "<p>No ramen available</p>";
-            }
-        }
-    };
 }
 
 function addSubmitListener() {
