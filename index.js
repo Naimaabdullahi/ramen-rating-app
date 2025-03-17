@@ -16,15 +16,16 @@ function displayRamens() {
     const ramenMenu = document.getElementById("ramen-menu");
     ramenMenu.innerHTML = "";
     ramenMenu.style.display = "flex";
-    ramenMenu.style.justifyContent = "center";
-    ramenMenu.style.gap = "10px";
+    ramenMenu.style.justifyContent = "space-around";
+    ramenMenu.style.gap = "15px";
 
     ramens.forEach(ramen => {
         const img = document.createElement("img");
         img.src = ramen.image;
         img.alt = ramen.name;
-        img.style.width = "100px";
+        img.style.width = "90px";
         img.style.cursor = "pointer";
+        img.addEventListener("mouseover", () => img.style.border = "2px solid red");
         ramenMenu.appendChild(img);
     });
 }
@@ -42,11 +43,6 @@ function handleClick(ramen) {
     detailRestaurant.textContent = ramen.restaurant;
     detailRating.textContent = `Rating: ${ramen.rating}`;
     detailComment.textContent = `Comment: ${ramen.comment}`;
-
-    detailContainer.style.display = "flex";
-    detailContainer.style.flexDirection = "column";
-    detailContainer.style.alignItems = "center";
-    detailContainer.style.justifyContent = "center";
 }
 
 function addSubmitListener() {
@@ -54,10 +50,8 @@ function addSubmitListener() {
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.alignItems = "center";
-    form.style.justifyContent = "center";
     form.style.textAlign = "center";
     form.style.margin = "0 auto";
-    form.style.width = "50%";
     
     form.addEventListener("submit", (event) => {
         event.preventDefault();
