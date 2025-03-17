@@ -1,4 +1,3 @@
-
 // ramen-rating-app/index.js
 
 document.addEventListener("DOMContentLoaded", main);
